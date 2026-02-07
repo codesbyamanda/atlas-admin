@@ -9,7 +9,6 @@ import { EmptyState } from "@/shared/components/empty-state";
 import {
   Select,
   SelectTrigger,
-  SelectValue,
   SelectContent,
   SelectItem,
 } from "@/shared/components/select/select";
@@ -17,13 +16,23 @@ import {
 import {
   ShoppingCart,
   Search,
-  Download,
   DollarSign,
   Package,
   Clock,
   CheckCircle2,
   TrendingUp,
 } from "lucide-react";
+
+import { ReactNode } from "react";
+
+type MetricProps = {
+  title: string;
+  value: string | number;
+  subtitle?: string;
+  footer?: string;
+  icon?: ReactNode;
+  color?: "primary" | "success" | "warning" | "destructive";
+};
 
 export default function OrdersPage() {
   const { items, loading, error, loadOrders } = useOrdersStore();
@@ -247,6 +256,7 @@ export default function OrdersPage() {
   );
 }
 
+
 /* ---------- Helper ---------- */
 
 function Metric({
@@ -256,7 +266,7 @@ function Metric({
   footer,
   icon,
   color = "primary",
-}: any) {
+}: MetricProps) {
   return (
     <div className="metric-card">
       <div className="flex items-start justify-between">

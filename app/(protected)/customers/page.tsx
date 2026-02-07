@@ -18,11 +18,8 @@ import {
 import {
   Users,
   Search,
-  Filter,
-  UserPlus,
   UserCheck,
   UserX,
-  Download,
 } from "lucide-react";
 
 export default function CustomersPage() {
